@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Transformeur IA</title>
+
+    <!-- DNS prefetch for all external domains -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://flagcdn.com" />
+    <link rel="dns-prefetch" href="https://player.vimeo.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+    <!-- Preconnect only to critical font domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!--
+      CRITICAL FIX: Use <link> with display=swap instead of @import in CSS.
+      This is NON-RENDER-BLOCKING — the browser loads fonts in parallel
+      and swaps in text immediately with a fallback, preventing the white-screen delay on mobile.
+    -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono&display=swap"
+      />
+    </noscript>
+
+    <script>
+      // Guard against libraries trying to overwrite window.fetch
+      try {
+        const desc = Object.getOwnPropertyDescriptor(window, 'fetch');
+        if (desc && !desc.writable && !desc.set) {
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return desc.get ? desc.get.call(window) : desc.value; },
+            set: function() { console.warn('Blocked attempt to overwrite window.fetch'); },
+            configurable: true
+          });
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
